@@ -29,9 +29,6 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Physics")]
     public Rigidbody2D rb;
 
-    [Header("Speed")]
-    public float horizontalSpeed;
-
     [Header("Forces")]
     public float jumpForce;
 
@@ -86,8 +83,6 @@ public class PlayerBehaviour : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-
-        rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
     }
 
     void Jump()
