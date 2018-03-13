@@ -69,9 +69,10 @@ GameObject:
   - component: {fileID: 4353181395361158}
   - component: {fileID: 61410399011891976}
   - component: {fileID: 114405795342616274}
+  - component: {fileID: 50140139478802276}
   m_Layer: 8
   m_Name: TEST_platform_small
-  m_TagString: Untagged
+  m_TagString: Platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +132,26 @@ Transform:
   m_Father: {fileID: 4353181395361158}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50140139478802276
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884553287326534}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61410399011891976
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -169,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlTransform: {fileID: 4353181395361158}
   lvlMovment: {x: 0, y: 0, z: 0}
-  lvlSpeed: -0.5
+  lvlSpeed: -0.2
 --- !u!212 &212140588855470982
 SpriteRenderer:
   m_ObjectHideFlags: 1

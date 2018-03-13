@@ -277,7 +277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4599648961997330, guid: ba7f1690683a4634eb8848363cd6e290, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba7f1690683a4634eb8848363cd6e290, type: 2}
@@ -381,7 +381,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1170809231
 Rigidbody2D:
@@ -495,7 +495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316951443
 MonoBehaviour:
@@ -508,6 +508,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b76aecd5df46924a9bc4f465e421789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlPrefab:
+  lvlBackground:
   - {fileID: 1280859678943102, guid: ba7f1690683a4634eb8848363cd6e290, type: 2}
-  prefabCoord: {x: 60, y: 0, z: 0}
+  backgroundPos: {x: 60, y: 0, z: 0}
+  lvlGround:
+  - {fileID: 1884553287326534, guid: 61de960eb6ae2584a9b7744febdf3740, type: 2}
+  - {fileID: 1175569337807674, guid: 50c2603b891a149428a13696396e64b0, type: 2}
+  - {fileID: 1913782538907652, guid: 3fb278c03a5de854ba273123e67c7ac6, type: 2}
+  groundPos: {x: 60, y: 0, z: 0}
+  spawnMin: 0.5
+  spawnMax: 1
+  spawnPos:
+  - 2.9
+  - -0.9
+  - -4.9

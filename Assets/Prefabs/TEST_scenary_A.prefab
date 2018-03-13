@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50602933158968746}
   m_Layer: 8
   m_Name: TEST_scenary_A
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
