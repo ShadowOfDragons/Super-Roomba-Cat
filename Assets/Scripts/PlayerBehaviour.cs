@@ -69,6 +69,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(numColliders > 0)
         {
             isGrounded = true;
+            canJump = true;
         }
 
         if(!wasGroundedLastFrame && isGrounded) justGotGrounded = true;
@@ -88,13 +89,14 @@ public class PlayerBehaviour : MonoBehaviour
     void Jump()
     {
         isJumping = true;
+        canJump = false;
     }
 
     public void JumpStart() //Decidir como será el salto
     {
         if(!canJump) return;
 
-        if(isGrounded)
+        if(canJump)
         {
             Jump();
         }
