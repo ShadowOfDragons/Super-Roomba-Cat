@@ -401,7 +401,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!114 &1170809232
 MonoBehaviour:
@@ -422,6 +422,7 @@ MonoBehaviour:
   justGotGrounded: 0
   justNotGrounded: 0
   isFalling: 0
+  isWalled: 0
   filter:
     useTriggers: 0
     useLayerMask: 1
@@ -438,8 +439,11 @@ MonoBehaviour:
     maxNormalAngle: 0
   maxColliders: 1
   checkGround: 1
-  groundBoxPos: {x: 0, y: -1.5}
+  checkWall: 1
+  groundBoxPos: {x: 0, y: -1.525}
   groundBoxSize: {x: 1.75, y: 0.1}
+  wallBoxPos: {x: 1.025, y: 0}
+  wallBoxSize: {x: 0.1, y: 2.5}
   rb: {fileID: 1170809231}
   jumpForce: 22
 --- !u!1 &1316951440

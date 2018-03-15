@@ -17,14 +17,20 @@ public class PlayerBehaviour : MonoBehaviour
     public bool justNotGrounded;
     public bool isFalling;
 
+    public bool isWalled;
+
     [Header("Filter")]
     public ContactFilter2D filter;
     public int maxColliders = 1;
     public bool checkGround = true;
+    public bool checkWall = true;
 
     [Header("Box properties")]
     public Vector2 groundBoxPos;
     public Vector2 groundBoxSize;
+
+    public Vector2 wallBoxPos;
+    public Vector2 wallBoxSize;
 
     [Header("Physics")]
     public Rigidbody2D rb;
@@ -36,15 +42,49 @@ public class PlayerBehaviour : MonoBehaviour
     {
         ResetState();
         GroundDetection();
+        WallDetection();
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        switch(state)
         {
-            Debug.Log("Jump");
-            JumpStart();
+            case State.Default:
+                if(Input.GetButtonDown("Jump"))
+                {
+                    Debug.Log("Jump");
+                    JumpStart();
+                }
+
+                if(isWalled)
+                {
+                    Debug.Break();
+                }
+
+                if(Input.GetKeyDown(KeyCode.F5))
+                {
+                    state = State.GodMode;
+                }
+                break;
+            case State.Dead:
+
+                break;
+            case State.GodMode:
+                if(Input.GetButtonDown("Jump"))
+                {
+                    Debug.Log("Jump");
+                    JumpStart();
+                }
+
+                if(Input.GetKeyDown(KeyCode.F5))
+                {
+                    state = State.Default;
+                }
+                break;
+            default:
+                break;
         }
+       
     }
 
     void ResetState()
@@ -55,6 +95,8 @@ public class PlayerBehaviour : MonoBehaviour
         isGrounded = false;
         justNotGrounded = false;
         justGotGrounded = false;
+
+        isWalled = false;
     }
 
     void GroundDetection()
@@ -86,6 +128,21 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    void WallDetection()
+    {
+        if(!checkWall) return;
+
+        Vector3 pos = this.transform.position + (Vector3)wallBoxPos;
+        Collider2D[] results = new Collider2D[maxColliders];
+
+        int numColliders = Physics2D.OverlapBox(pos, wallBoxSize, 0, filter, results);
+
+        if(numColliders > 0)
+        {
+            isWalled = true;
+        }
+    }
+
     void Jump()
     {
         isJumping = true;
@@ -107,5 +164,9 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.color = Color.red;
         Vector3 groundPos = this.transform.position + (Vector3)groundBoxPos;
         Gizmos.DrawWireCube(groundPos, groundBoxSize);
+
+        Gizmos.color = Color.blue;
+        Vector3 wallPos = this.transform.position + (Vector3)wallBoxPos;
+        Gizmos.DrawWireCube(wallPos, wallBoxSize);
     }
 }
