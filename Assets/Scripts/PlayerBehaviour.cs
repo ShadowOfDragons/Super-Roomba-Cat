@@ -42,12 +42,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Score")]
     public Text scoreText;
+    public Text highscoreText;
     private float score = 0.0f;
     private float highscore = 0.0f;
 
     private void Start()
     {
-        //highscore = PlayerPrefs.GetInt("Highscore");
+        /*highscore = PlayerPrefs.GetInt("Highscore");
+        highscoreText.text = highscore.ToString();*/
     }
 
     private void FixedUpdate()
@@ -70,7 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
 
                 if(isWalled)
                 {
-                    SceneManager.LoadScene(3);
+                    state = State.Dead;
                 }
 
                 if(Input.GetKeyDown(KeyCode.F5))
@@ -84,6 +86,8 @@ public class PlayerBehaviour : MonoBehaviour
                 break;
             case State.Dead:
                 PlayerPrefs.SetInt("Score", (int)score);
+                PlayerPrefs.Save();
+                SceneManager.LoadScene(3);
 
                 break;
             case State.GodMode:
