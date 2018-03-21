@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 1170809228}
   - component: {fileID: 1170809231}
   - component: {fileID: 1170809232}
-  - component: {fileID: 1170809233}
   m_Layer: 0
   m_Name: TEST_player
   m_TagString: Untagged
@@ -823,18 +822,6 @@ MonoBehaviour:
   wallBoxSize: {x: 0.1, y: 2.5}
   rb: {fileID: 1170809231}
   jumpForce: 22
---- !u!114 &1170809233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1170809227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f37bb18374402a340be6f55f2717ee6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
   scoreText: {fileID: 2143553690}
 --- !u!1 &1316951440
 GameObject:

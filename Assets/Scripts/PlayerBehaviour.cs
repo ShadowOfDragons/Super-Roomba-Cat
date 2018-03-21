@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -39,6 +40,16 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Forces")]
     public float jumpForce;
 
+    [Header("Score")]
+    public Text scoreText;
+    private int score = 0;
+    private int highscore = 0;
+
+    private void Start()
+    {
+        //highscore = PlayerPrefs.GetInt("Highscore");
+    }
+
     private void FixedUpdate()
     {
         ResetState();
@@ -66,8 +77,13 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     state = State.GodMode;
                 }
+
+                score += (int)Time.deltaTime;
+                scoreText.text = score.ToString();
+
                 break;
             case State.Dead:
+                PlayerPrefs.SetInt("Score", score);
 
                 break;
             case State.GodMode:
@@ -81,6 +97,10 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     state = State.Default;
                 }
+
+                score += (int)Time.deltaTime;
+                scoreText.text = score.ToString();
+
                 break;
             default:
                 break;
