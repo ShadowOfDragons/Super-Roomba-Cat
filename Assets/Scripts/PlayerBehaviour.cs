@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
 
                 if(isWalled)
                 {
-                    Debug.Break();
+                    SceneManager.LoadScene(3);
                 }
 
                 if(Input.GetKeyDown(KeyCode.F5))
