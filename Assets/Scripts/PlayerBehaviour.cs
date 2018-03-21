@@ -42,8 +42,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Score")]
     public Text scoreText;
-    private int score = 0;
-    private int highscore = 0;
+    private float score = 0.0f;
+    private float highscore = 0.0f;
 
     private void Start()
     {
@@ -78,12 +78,12 @@ public class PlayerBehaviour : MonoBehaviour
                     state = State.GodMode;
                 }
 
-                score += (int)Time.deltaTime;
-                scoreText.text = score.ToString();
+                score += Time.deltaTime;
+                scoreText.text = ((int)score).ToString();
 
                 break;
             case State.Dead:
-                PlayerPrefs.SetInt("Score", score);
+                PlayerPrefs.SetInt("Score", (int)score);
 
                 break;
             case State.GodMode:
@@ -98,8 +98,8 @@ public class PlayerBehaviour : MonoBehaviour
                     state = State.Default;
                 }
 
-                score += (int)Time.deltaTime;
-                scoreText.text = score.ToString();
+                score += Time.deltaTime;
+                scoreText.text = ((int)score).ToString();
 
                 break;
             default:
