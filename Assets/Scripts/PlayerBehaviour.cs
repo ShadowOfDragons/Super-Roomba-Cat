@@ -139,7 +139,17 @@ public class PlayerBehaviour : MonoBehaviour
             canJump = true;
         }
 
-        if(!wasGroundedLastFrame && isGrounded) justGotGrounded = true;
+        for (int i = 0; i < numColliders; i++)
+        {
+            if (results[i].tag == "Platforms")
+            {
+                Destroy(results[i].gameObject);
+                score += 5;
+                Debug.Log("PLATAFORMA ASPIRADA");
+            }
+        }
+
+        if (!wasGroundedLastFrame && isGrounded) justGotGrounded = true;
         if(wasGroundedLastFrame && !isGrounded) justNotGrounded = true;
 
         if(justNotGrounded) Debug.Log("JUST NOT GROUNDED");
