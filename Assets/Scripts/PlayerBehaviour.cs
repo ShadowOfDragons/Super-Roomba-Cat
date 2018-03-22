@@ -48,8 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Start()
     {
-        /*highscore = PlayerPrefs.GetInt("Highscore");
-        highscoreText.text = highscore.ToString();*/
+        highscore = PlayerPrefs.GetInt("Highscore");
+        highscoreText.text = highscore.ToString();
     }
 
     private void FixedUpdate()
