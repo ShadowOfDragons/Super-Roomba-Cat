@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlTransform: {fileID: 4353181395361158}
   lvlMovment: {x: 0, y: 0, z: 0}
-  lvlSpeed: -0.2
+  lvlSpeed: -0.3
 --- !u!212 &212140588855470982
 SpriteRenderer:
   m_ObjectHideFlags: 1
