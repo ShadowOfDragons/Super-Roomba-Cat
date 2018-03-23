@@ -51,8 +51,12 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioClip jumpSfx;
     public AudioClip vacuumSfx;
 
+    [Header("Particles Effects")]
+    public GameObject jumpFx;
+
     private void Start()
     {
+        jumpFx.SetActive(false);
         highscore = PlayerPrefs.GetInt("Highscore");
         highscoreText.text = highscore.ToString();
     }
@@ -69,6 +73,11 @@ public class PlayerBehaviour : MonoBehaviour
         switch(state)
         {
             case State.Default:
+
+                if(!isGrounded)
+                {
+                    jumpFx.SetActive(true);
+                }
                 if(Input.GetButtonDown("Jump"))
                 {
                     Debug.Log("Jump");
@@ -142,6 +151,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             isGrounded = true;
             canJump = true;
+            jumpFx.SetActive(false);
         }
 
         for (int i = 0; i < numColliders; i++)
