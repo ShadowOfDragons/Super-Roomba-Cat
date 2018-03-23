@@ -46,6 +46,11 @@ public class PlayerBehaviour : MonoBehaviour
     private float score = 0.0f;
     private float highscore = 0.0f;
 
+    [Header("Sound Effects")]
+    public AudioSource sfx;
+    public AudioClip jumpSfx;
+    public AudioClip vacuumSfx;
+
     private void Start()
     {
         highscore = PlayerPrefs.GetInt("Highscore");
@@ -145,6 +150,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 Destroy(results[i].gameObject);
                 score += 5;
+                sfx.PlayOneShot(vacuumSfx);
                 Debug.Log("PLATAFORMA ASPIRADA");
             }
         }
@@ -188,7 +194,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(!canJump) return;
 
-        if(canJump)
+        sfx.PlayOneShot(jumpSfx);
+
+        if (canJump)
         {
             Jump();
         }

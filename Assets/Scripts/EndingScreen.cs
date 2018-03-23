@@ -12,9 +12,13 @@ public class EndingScreen : MonoBehaviour
     private int score = 0;
     private int highscore = 0;
 
+    public AudioSource sfx;
+    public AudioClip crash;
+
     // Use this for initialization
     void Start()
     {
+        sfx.PlayOneShot(crash);
         highscore = PlayerPrefs.GetInt("Highscore");
         score = PlayerPrefs.GetInt("Score");
 
